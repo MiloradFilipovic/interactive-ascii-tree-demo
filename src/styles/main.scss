@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+
+:root {
+  --background-color: #ffffff;
+  --text-color: #17242b;
+  --text-color-lighter: #1a2931;
+  --primary-color: #d2e8de;
+}
+[data-theme='dark'] {
+  --background-color: #17242b;
+  --text-color: #efefef;
+  --text-color-lighter: #cfcfcf;
+  --primary-color: #374241;
+}
