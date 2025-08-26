@@ -2,6 +2,8 @@
 
 Demo website for `vue-interactive-ascii-tree`
 
+🎮 [Live Demo](https://interactive-ascii-tree-demo.netlify.app/)
+
 ## dev Setup
 
 ```sh
