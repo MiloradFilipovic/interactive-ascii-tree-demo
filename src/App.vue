@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import ThemeToggle from '@/components/ThemeToggle.vue'
-import { useUIStore } from './stores/ui.store'
+import { useUIStore } from '@/stores/ui.store'
 import { computed } from 'vue'
+import InputPane from '@/components/InputPane.vue'
+import OutputPane from '@/components/OutputPane.vue'
 
 const uiStore = useUIStore()
 
@@ -13,12 +15,16 @@ const currentTheme = computed(() => uiStore.theme)
     <div :class="$style.toolbar">
       <ThemeToggle />
     </div>
-    <div :class="$style.header">
-      <div>
+    <div :class="$style.content">
+      <header :class="$style.header">
         <h1>
           <code>vue-interactive-ascii-tree</code>
         </h1>
         <p>Interactive ASCII tree component built with Vue3 and TypeScript.</p>
+      </header>
+      <div :class="$style.panes">
+        <div :class="[$style.pane]"><InputPane /></div>
+        <div :class="[$style.pane]"><OutputPane /></div>
       </div>
     </div>
   </div>
@@ -29,10 +35,10 @@ const currentTheme = computed(() => uiStore.theme)
   font-family: 'Courier New', Courier, monospace;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  box-sizing: border-box;
   gap: 1rem;
-  height: calc(100vh - 1rem);
-  padding: 0.5rem;
+  height: 100vh;
+  padding: 1rem;
 
   background-color: var(--background-color);
   color: var(--text-color);
@@ -44,10 +50,20 @@ const currentTheme = computed(() => uiStore.theme)
   width: 100%;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 10%;
+
+  @media screen and (max-width: 1300px) {
+    padding: 0 1rem;
+  }
+}
+
 .header {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.5rem;
 
   h1 {
@@ -57,6 +73,28 @@ const currentTheme = computed(() => uiStore.theme)
   p {
     margin: 0;
     color: var(--text-color-lighter);
+  }
+}
+
+.panes {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+
+  .pane {
+    width: 50%;
+
+    & > div {
+      min-height: 400px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+
+    .pane {
+      width: 100%;
+    }
   }
 }
 </style>
