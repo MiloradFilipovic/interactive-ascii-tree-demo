@@ -37,7 +37,8 @@ const currentTheme = computed(() => uiStore.theme)
   flex-direction: column;
   box-sizing: border-box;
   gap: 1rem;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   padding: 1rem;
 
   background-color: var(--background-color);
@@ -97,6 +98,7 @@ const currentTheme = computed(() => uiStore.theme)
 
     .pane {
       width: 100%;
+      box-sizing: border-box;
     }
   }
 }
