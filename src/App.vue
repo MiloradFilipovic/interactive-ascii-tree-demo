@@ -16,7 +16,7 @@ const currentTheme = computed(() => uiStore.theme)
     <div :class="$style.header">
       <div>
         <h1>
-          <code>interactive-ascii-tree Demo</code>
+          <code>vue-interactive-ascii-tree</code>
         </h1>
         <p>Interactive ASCII tree component built with Vue3 and TypeScript.</p>
       </div>
