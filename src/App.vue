@@ -53,7 +53,7 @@ const currentTheme = computed(() => uiStore.theme)
 .content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
   padding: 0 10%;
 
   @media screen and (max-width: 1300px) {
@@ -82,6 +82,9 @@ const currentTheme = computed(() => uiStore.theme)
   gap: 1rem;
 
   .pane {
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem;
+    background-color: var(--background-color);
     width: 50%;
 
     & > div {

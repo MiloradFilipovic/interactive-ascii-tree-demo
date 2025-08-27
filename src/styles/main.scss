@@ -9,13 +9,15 @@ h2 {
 
 :root {
   --background-color: #ffffff;
+  --background-muted: #cfcfcf;
   --text-color: #17242b;
   --text-color-lighter: #1a2931;
-  --primary-color: #d2e8de;
+  --primary-color: #cfcfcf;
 }
 [data-theme='dark'] {
   --background-color: #17242b;
+  --background-muted: #364a55;
   --text-color: #efefef;
   --text-color-lighter: #cfcfcf;
-  --primary-color: #374241;
+  --primary-color: #cfcfcf;
 }
