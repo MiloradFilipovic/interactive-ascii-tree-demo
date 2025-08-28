@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { TextParser } from '@/vue-interactive-ascii-tree/parsers/textParser/TextParser'
 import { computed, ref } from 'vue'
-import TreeItem from './components/TreeItem.vue'
+import TreeItem from '@/vue-interactive-ascii-tree/components/TreeItem.vue'
+import CopyButton from './components/CopyButton.vue'
 
 type Props = {
   textInput: string
@@ -38,6 +39,9 @@ const isExpanded = (id: string) => {
 
 <template>
   <div :class="$style.container">
+    <div :class="$style['copy-button']">
+      <CopyButton :text-to-copy="renderedText" />
+    </div>
     <TreeItem
       v-for="node in tree"
       :key="node.id"
@@ -52,11 +56,19 @@ const isExpanded = (id: string) => {
 
 <style module lang="scss">
 .container {
-  display: block;
+  display: flex;
+  flex: 1;
+  position: relative;
+
+  &:hover .copy-button {
+    display: block;
+  }
 }
 
-.content {
-  white-space: pre-wrap;
-  word-wrap: break-word;
+.copy-button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 </style>
