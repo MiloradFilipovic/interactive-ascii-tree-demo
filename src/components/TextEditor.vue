@@ -1,18 +1,22 @@
 <script setup lang="ts">
 import { useUIStore } from '@/stores/ui.store'
-import { onMounted, useTemplateRef, watch, nextTick } from 'vue'
+import { onMounted, useTemplateRef, watch, nextTick, ref } from 'vue'
 
 const uiStore = useUIStore()
 
 type Props = {
   visible?: boolean
+  tabSize?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
   visible: true,
+  tabSize: 2,
 })
 
 const textarea = useTemplateRef('textarea')
+
+const currentValue = ref('')
 
 const placeholderText = `Root
   Child1
@@ -35,17 +39,63 @@ watch(
   },
 )
 
+// Taken from https://github.com/beaubus/vue-itextarea/blob/master/src/vue-itextarea.vue :)
 const handleKeydown = (event: KeyboardEvent) => {
-  if (event.key === 'Tab') {
+  const target = event.target as HTMLTextAreaElement | null
+
+  if (!target) return
+
+  let value = target.value
+  const start = target.selectionStart
+  const end = target.selectionEnd
+
+  if (event.key === 'Tab' && !event.metaKey) {
     event.preventDefault()
-    const start = textarea.value?.selectionStart || 0
-    const end = textarea.value?.selectionEnd || 0
 
-    uiStore.textEditorValue =
-      uiStore.textEditorValue.substring(0, start) + '  ' + uiStore.textEditorValue.substring(end)
-
-    textarea.value!.selectionStart = textarea.value!.selectionEnd = start + 1
+    event.preventDefault()
+    value = value.substring(0, start) + ' '.repeat(props.tabSize) + value.substring(end)
+    target.value = value
+    target.selectionStart = target.selectionEnd = start + props.tabSize
   }
+
+  if (event.key === 'Backspace' && !event.metaKey) {
+    const charsBeforeCursor = value.substring(start - props.tabSize, props.tabSize)
+
+    if (charsBeforeCursor === ' '.repeat(props.tabSize)) {
+      event.preventDefault()
+      value = value.substring(0, start - props.tabSize) + value.substring(end)
+      target.value = value
+      setTimeout(() => (target.selectionStart = target.selectionEnd = start - props.tabSize), 0)
+    }
+  }
+
+  if (event.key === 'Enter') {
+    const current_line = value.substring(0, start).split('\n').pop() // line, we are currently on
+
+    if (current_line && current_line.startsWith(' '.repeat(props.tabSize))) {
+      // type tab
+      event.preventDefault()
+      // detect how many tabs in the beginning and apply
+      const spaces_count = current_line.search(/\S|$/) // position of first non white-space character
+      const tabs_count = spaces_count ? spaces_count / props.tabSize : 0
+
+      value =
+        value.substring(0, start) +
+        '\n' +
+        ' '.repeat(props.tabSize).repeat(tabs_count) +
+        currentValue.value.substring(end)
+      target.value = value
+      setTimeout(
+        () =>
+          (target.selectionStart = target.selectionEnd = start + props.tabSize * tabs_count + 1),
+        0,
+      )
+    }
+  }
+
+  setTimeout(() => {
+    currentValue.value = target.value
+  }, 0)
 }
 </script>
 
