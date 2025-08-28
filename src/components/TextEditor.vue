@@ -52,15 +52,16 @@ const handleKeydown = (event: KeyboardEvent) => {
   const start = target.selectionStart
   const end = target.selectionEnd
 
+  // Tab key moves cursor by tabSize
   if (event.key === 'Tab' && !event.metaKey) {
     event.preventDefault()
 
-    event.preventDefault()
     value = value.substring(0, start) + ' '.repeat(props.tabSize) + value.substring(end)
     target.value = value
     target.selectionStart = target.selectionEnd = start + props.tabSize
   }
 
+  // Backspace key removes tabSize spaces
   if (event.key === 'Backspace' && !event.metaKey) {
     const charsBeforeCursor = value.substring(start - props.tabSize, props.tabSize)
 
@@ -72,25 +73,25 @@ const handleKeydown = (event: KeyboardEvent) => {
     }
   }
 
+  // Enter key adds a new line and indents it to the current line's indentation
   if (event.key === 'Enter') {
-    const current_line = value.substring(0, start).split('\n').pop() // line, we are currently on
+    const currentLine = value.substring(0, start).split('\n').pop() // line, we are currently on
 
-    if (current_line && current_line.startsWith(' '.repeat(props.tabSize))) {
+    if (currentLine && currentLine.startsWith(' '.repeat(props.tabSize))) {
       // type tab
       event.preventDefault()
       // detect how many tabs in the beginning and apply
-      const spaces_count = current_line.search(/\S|$/) // position of first non white-space character
-      const tabs_count = spaces_count ? spaces_count / props.tabSize : 0
+      const spaceCount = currentLine.search(/\S|$/) // position of first non white-space character
+      const tabCount = spaceCount ? spaceCount / props.tabSize : 0
 
       value =
         value.substring(0, start) +
         '\n' +
-        ' '.repeat(props.tabSize).repeat(tabs_count) +
+        ' '.repeat(props.tabSize).repeat(tabCount) +
         currentValue.value.substring(end)
       target.value = value
       setTimeout(
-        () =>
-          (target.selectionStart = target.selectionEnd = start + props.tabSize * tabs_count + 1),
+        () => (target.selectionStart = target.selectionEnd = start + props.tabSize * tabCount + 1),
         0,
       )
     }
