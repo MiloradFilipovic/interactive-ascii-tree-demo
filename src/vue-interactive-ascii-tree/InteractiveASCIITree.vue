@@ -58,6 +58,8 @@ const isExpanded = (id: string) => {
 .container {
   display: flex;
   flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
   position: relative;
 
   &:hover .copy-button {
