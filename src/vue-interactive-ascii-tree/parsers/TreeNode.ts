@@ -1,9 +1,11 @@
 export class TreeNode {
-  content: string
+  id: string
+  name: string
   children: TreeNode[]
 
-  constructor(content: string) {
-    this.content = content
+  constructor(name: string) {
+    this.id = crypto.randomUUID()
+    this.name = name
     this.children = []
   }
 
@@ -25,7 +27,7 @@ export class TreeNode {
   }
 
   toJSON(): Record<string, unknown> {
-    const result: Record<string, unknown> = { name: this.content }
+    const result: Record<string, unknown> = { name: this.name }
 
     if (this.hasChildren()) {
       result.children = this.children.map((child) => child.toJSON())

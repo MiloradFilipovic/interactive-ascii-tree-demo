@@ -29,12 +29,16 @@ export abstract class BaseParser {
     this.warnings = []
   }
 
-  protected generateAsciiTree(nodes: TreeNode[], prefix: string = '', isRootLevel: boolean = true): string[] {
+  protected generateAsciiTree(
+    nodes: TreeNode[],
+    prefix: string = '',
+    isRootLevel: boolean = true,
+  ): string[] {
     const result: string[] = []
     nodes.forEach((node, index) => {
       if (prefix === '' && isRootLevel) {
         // Root node - no connector
-        result.push(node.content)
+        result.push(node.name)
         if (node.hasChildren()) {
           // Children of root nodes get normal tree connectors
           result.push(...this.generateAsciiTree(node.children, '', false))
@@ -44,7 +48,7 @@ export abstract class BaseParser {
         const connector = isLast ? '└── ' : '├── '
         const extension = isLast ? '    ' : '│   '
 
-        result.push(`${prefix}${connector}${node.content}`)
+        result.push(`${prefix}${connector}${node.name}`)
         if (node.hasChildren()) {
           const childPrefix = prefix + extension
           result.push(...this.generateAsciiTree(node.children, childPrefix, false))
