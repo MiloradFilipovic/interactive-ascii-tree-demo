@@ -15,8 +15,10 @@ const props = withDefaults(defineProps<Props>(), {
 const textarea = useTemplateRef('textarea')
 
 const placeholderText = `Root
-  Child
-  - Can also use dashes
+  Child1
+    Grandchild1
+    - Can also use dashes
+  Child2
 `
 
 onMounted(() => {
