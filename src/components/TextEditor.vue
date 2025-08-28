@@ -18,11 +18,14 @@ const textarea = useTemplateRef('textarea')
 
 const currentValue = ref('')
 
-const placeholderText = `Root
-  Child1
-    Grandchild1
-    - Can also use dashes
-  Child2
+const placeholderText = `src
+  components
+    TextEditor.vue
+  composables
+    useTextEditor.vue
+  stores
+    ui.store.ts
+  App.vue
 `
 
 onMounted(() => {

@@ -33,5 +33,8 @@ const renderedText = computed(() => {
 }
 .content {
   padding: 0.5rem;
+  font-size: 1.1em;
+  font-weight: normal;
+  font-family: monospace;
 }
 </style>
