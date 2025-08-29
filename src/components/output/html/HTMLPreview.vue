@@ -18,6 +18,13 @@ const htmlGenerator = new HTMLGenerator()
 const props = defineProps<Props>()
 
 const result = computed(() => htmlGenerator.renderTree(props.tree))
+
+const highlightedCode = computed(() => {
+  if (!result.value) return ''
+  return hljs.highlight(result.value, {
+    language: 'xml',
+  }).value
+})
 </script>
 
 <template>
@@ -28,7 +35,7 @@ const result = computed(() => htmlGenerator.renderTree(props.tree))
       :textToCopy="result"
       copyLabel="Copy HTML"
     />
-    <pre>{{ result }}</pre>
+    <pre v-html="highlightedCode"></pre>
   </div>
 </template>
 

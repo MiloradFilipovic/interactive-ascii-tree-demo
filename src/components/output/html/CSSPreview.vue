@@ -4,7 +4,6 @@ import css from 'highlight.js/lib/languages/css'
 import { TREE_CSS } from '@/components/output/html/css-code.constant'
 import CopyButton from '@/components/output/CopyButton.vue'
 
-// TODO: Fix highlighting
 // TODO: Add root element css class to options
 hljs.registerLanguage('css', css)
 
