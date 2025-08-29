@@ -9,7 +9,12 @@ export class AsciiGenerator extends BaseTreeGenerator<string> {
 
   renderTree(nodes: TreeNode[]): string {
     const lines: string[] = []
-    this.renderNodes(nodes, 0, [], lines)
+    nodes.forEach((node) => {
+      lines.push(node.name)
+      if (node.children?.length) {
+        this.renderNodes(node.children, 1, [], lines)
+      }
+    })
     return lines.join('\n')
   }
 

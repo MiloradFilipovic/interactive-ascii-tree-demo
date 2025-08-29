@@ -14,9 +14,7 @@ const htmlGenerator = new HTMLGenerator()
 
 const props = defineProps<Props>()
 
-// TODO: Looks like pipes are missing from ASCII output
 const asciiResult = computed(() => asciiGenerator.renderTree(props.tree))
-
 const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
 </script>
 
