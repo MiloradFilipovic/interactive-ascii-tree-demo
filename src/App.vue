@@ -4,10 +4,14 @@ import { useUIStore } from '@/stores/ui.store'
 import { computed } from 'vue'
 import InputPane from '@/components/input/InputPane.vue'
 import OutputPane from '@/components/output/OutputPane.vue'
+import { useHighlightTheme } from '@/composables/useHighlightTheme'
 
 const uiStore = useUIStore()
 
 const currentTheme = computed(() => uiStore.theme)
+
+// Initialize highlight.js theme switching
+useHighlightTheme()
 </script>
 
 <template>

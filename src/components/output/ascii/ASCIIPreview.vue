@@ -55,6 +55,7 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
 </style>
 
 <style>
+/* TODO: Figure out how to load styles from the constant */
 .interactive-ascii-tree {
   list-style: none;
   padding: 0;
