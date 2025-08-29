@@ -7,8 +7,8 @@ export const TREE_CSS = `
   padding: 0;
   margin: 0;
   font-family: 'Courier New', monospace;
-  font-size: 14px;
-  line-height: 1.2;
+  font-size: 16px;
+  line-height: 1;
   
   ul {
     list-style: none;
@@ -18,7 +18,8 @@ export const TREE_CSS = `
   
   li {
     margin: 0;
-    padding: 2px 0;
+    padding: 0;
+    padding-top: 6px;
     position: relative;
     
     li {
@@ -42,7 +43,7 @@ export const TREE_CSS = `
         left: 0;
         top: 1.4em;
         white-space: pre-line;
-        line-height: 1.2;
+        line-height: 1;
         pointer-events: none;
         overflow: hidden;
         height: calc(100% - 1.4em);
@@ -73,12 +74,12 @@ export const TREE_CSS = `
     }
     
     &::after {
-      content: ' [+]';
+      content: '[+]';
       color: var(--line-color);
     }
     
     details[open] > &::after {
-      content: ' [-]';
+      content: '[-]';
     }
     
     &:hover {

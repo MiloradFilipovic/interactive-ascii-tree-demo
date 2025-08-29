@@ -64,8 +64,8 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
   padding: 0;
   margin: 0;
   font-family: 'Courier New', monospace;
-  font-size: 14px;
-  line-height: 1.2;
+  font-size: 16px;
+  line-height: 1;
   
   ul {
     list-style: none;
@@ -75,7 +75,8 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
   
   li {
     margin: 0;
-    padding: 2px 0;
+    padding: 0;
+    padding-top: 6px;
     position: relative;
     
     li {
@@ -99,7 +100,7 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
         left: 0;
         top: 1.4em;
         white-space: pre-line;
-        line-height: 1.2;
+        line-height: 1;
         pointer-events: none;
         overflow: hidden;
         height: calc(100% - 1.4em);
@@ -130,12 +131,12 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
     }
     
     &::after {
-      content: ' [+]';
+      content: '[+]';
       color: var(--line-color);
     }
     
     details[open] > &::after {
-      content: ' [-]';
+      content: '[-]';
     }
     
     &:hover {
