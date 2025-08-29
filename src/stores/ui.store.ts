@@ -1,5 +1,5 @@
 import { LOCAL_STORAGE_THEME_KEY } from '@/constants'
-import type { InputEditorType, OutputType, Theme } from '@/types'
+import type { OutputType, Theme } from '@/types'
 import { useStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'

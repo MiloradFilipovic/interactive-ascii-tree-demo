@@ -1,20 +1,19 @@
 <script setup lang="ts">
-import type { TreeNode } from '@/parsers/TreeNode'
-import { Construction } from 'lucide-vue-next'
+import hljs from 'highlight.js'
+import css from 'highlight.js/lib/languages/css'
+import { TREE_CSS } from '@/components/output/html/css-code.constant'
 
-type Props = {
-  tree: TreeNode[]
-}
+// TODO: Fix highlighting
+hljs.registerLanguage('css', css)
 
-const props = defineProps<Props>()
+const code = hljs.highlight(TREE_CSS, {
+  language: 'CSS',
+}).value
 </script>
 
 <template>
   <div :class="$style.container">
-    <div :class="$style['under-construction']">
-      <Construction :size="16" />
-      CSS Preview is coming soon
-    </div>
+    <pre :class="$style.code" v-html="code"></pre>
   </div>
 </template>
 
@@ -34,9 +33,8 @@ const props = defineProps<Props>()
   }
 }
 
-.under-construction {
-  display: flex;
-  gap: 0.5rem;
+.code {
+  width: 100%;
 }
 
 .copy-button {

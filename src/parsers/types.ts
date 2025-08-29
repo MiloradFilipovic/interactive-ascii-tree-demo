@@ -1,4 +1,4 @@
-import type { TreeNode } from '@/vue-interactive-ascii-tree/parsers/TreeNode'
+import type { TreeNode } from '@/parsers/TreeNode'
 
 export type ParsedLine = {
   content: string
