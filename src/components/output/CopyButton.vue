@@ -43,6 +43,7 @@ const onCopyButtonClick = async () => {
   cursor: pointer;
   color: inherit;
   font: inherit;
+  z-index: 99;
 
   &:disabled {
     cursor: not-allowed;
