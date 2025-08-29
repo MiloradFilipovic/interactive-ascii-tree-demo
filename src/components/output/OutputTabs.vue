@@ -29,7 +29,7 @@ const setActiveTab = (tab: OutputType) => {
       @click="setActiveTab('ascii')"
     >
       <Eye :size="12" :class="$style.icon" />
-      <span>Preview</span>
+      <span :class="$style.label">Preview</span>
     </button>
     <button
       :class="{ [$style.active]: activeTab === 'html' }"
@@ -37,7 +37,7 @@ const setActiveTab = (tab: OutputType) => {
       @click="setActiveTab('html')"
     >
       <code-xml :size="12" :class="$style.icon" />
-      <span>HTML</span>
+      <span :class="$style.label">HTML</span>
     </button>
     <button
       :class="{ [$style.active]: activeTab === 'css' }"
@@ -45,7 +45,7 @@ const setActiveTab = (tab: OutputType) => {
       @click="setActiveTab('css')"
     >
       <Palette :size="12" :class="$style.icon" />
-      <span>CSS</span>
+      <span :class="$style.label">CSS</span>
     </button>
     <button
       :class="{ [$style.active]: activeTab === 'web-component' }"
@@ -53,7 +53,7 @@ const setActiveTab = (tab: OutputType) => {
       @click="setActiveTab('web-component')"
     >
       <Puzzle :size="12" :class="$style.icon" />
-      <span>Web Component</span>
+      <span :class="$style.label">Web Component</span>
     </button>
   </div>
 </template>
@@ -88,7 +88,7 @@ button {
   }
 }
 
-.icon {
+.label {
   @media screen and (max-width: 950px) {
     display: none;
   }
