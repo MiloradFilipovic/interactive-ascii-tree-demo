@@ -3,7 +3,11 @@ export const TREE_CSS = `
   --indent: 4ch;
   --line-color: #666;
   --v-line: '│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A';
+
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   padding: 0;
   margin: 0;
   font-size: 16px;
