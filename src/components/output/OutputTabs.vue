@@ -2,7 +2,7 @@
 import { useUIStore } from '@/stores/ui.store'
 import { computed } from 'vue'
 import type { OutputType } from '@/types'
-import { CodeXml, LetterText, Palette, Puzzle } from 'lucide-vue-next'
+import { Eye, Palette, Puzzle } from 'lucide-vue-next'
 
 type Props = {
   disabled?: boolean
@@ -28,8 +28,8 @@ const setActiveTab = (tab: OutputType) => {
       :disabled="props.disabled"
       @click="setActiveTab('ascii')"
     >
-      <LetterText :size="12" :class="$style.icon" />
-      <span>ASCII</span>
+      <Eye :size="12" :class="$style.icon" />
+      <span>Preview</span>
     </button>
     <button
       :class="{ [$style.active]: activeTab === 'html' }"

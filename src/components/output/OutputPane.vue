@@ -1,10 +1,21 @@
 <script setup lang="ts">
 import { useUIStore } from '@/stores/ui.store'
-import InteractiveASCIITree from '@/components/output/InteractiveASCIITree.vue'
 import { computed } from 'vue'
 import OutputTabs from '@/components/output/OutputTabs.vue'
+import AsciiPreview from '@/components/output/ascii/ASCIIPreview.vue'
+import CSSPreview from '@/components/output/html/CSSPreview.vue'
+import HTMLPreview from '@/components/output/html/HTMLPreview.vue'
+import WebComponentPreview from '@/components/output/WebComponentPreview.vue'
+import { TextParser } from '@/parsers/textParser/TextParser'
 
 const uiStore = useUIStore()
+
+const textParser = new TextParser({
+  tabWidth: 2,
+  minIndentDiff: 1,
+})
+
+const tree = computed(() => textParser.parse(currentTextInput.value))
 
 const activeTab = computed(() => uiStore.outputMode)
 
@@ -16,7 +27,10 @@ const currentTextInput = computed(() => uiStore.textEditorValue)
       <h2>Result</h2>
       <OutputTabs :disabled="currentTextInput === ''" />
     </header>
-    <InteractiveASCIITree v-if="activeTab === 'ascii'" :textInput="currentTextInput" />
+    <AsciiPreview v-if="activeTab === 'ascii'" :tree="tree" />
+    <HTMLPreview v-if="activeTab === 'html'" :tree="tree" />
+    <CSSPreview v-if="activeTab === 'css'" :tree="tree" />
+    <WebComponentPreview v-if="activeTab === 'web-component'" :tree="tree" />
   </div>
 </template>
 <style module lang="scss">

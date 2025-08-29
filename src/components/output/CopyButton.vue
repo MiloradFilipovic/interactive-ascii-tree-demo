@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const COPY_LABEL = 'Copy Tree'
 const COPIED_LABEL = 'Copied!'
 const COPY_TIMEOUT = 2000
 
 type Props = {
   textToCopy: string
+  copyLabel: string
 }
 
 const props = defineProps<Props>()
@@ -32,7 +32,7 @@ const onCopyButtonClick = async () => {
     :disabled="props.textToCopy === ''"
     @click="onCopyButtonClick"
   >
-    {{ textCopied ? COPIED_LABEL : COPY_LABEL }}
+    {{ textCopied ? COPIED_LABEL : props.copyLabel }}
   </button>
 </template>
 
