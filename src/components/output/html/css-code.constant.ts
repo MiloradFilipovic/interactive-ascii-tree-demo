@@ -1,15 +1,15 @@
 export const TREE_CSS = `
 .interactive-ascii-tree {
-  --indent: 2em;
+  --indent: 4ch;
   --line-color: #666;
   --v-line: '│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A';
   list-style: none;
   padding: 0;
   margin: 0;
-  font-family: 'Courier New', monospace;
   font-size: 16px;
   line-height: 1;
-  
+  font-family: "Consolas", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
+
   ul {
     list-style: none;
     margin: 0;
