@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { TextParser } from '@/vue-interactive-ascii-tree/parsers/textParser/TextParser'
+import { TextParser } from '@/parsers/textParser/TextParser'
 import { computed, ref } from 'vue'
-import TreeItem from '@/vue-interactive-ascii-tree/components/TreeItem.vue'
-import CopyButton from './components/CopyButton.vue'
+import TreeItem from '@/components/output/TreeItem.vue'
+import CopyButton from '@/components/output/CopyButton.vue'
+import { AsciiGenerator } from '@/generators/ASCIIGenerator'
 
 type Props = {
   textInput: string
@@ -13,6 +14,8 @@ const textParser = new TextParser({
   minIndentDiff: 1,
 })
 
+const asciiGenerator = new AsciiGenerator()
+
 const props = defineProps<Props>()
 
 // Everything is expanded by default
@@ -21,7 +24,7 @@ const collapsedItems = ref<Set<string>>(new Set())
 const tree = computed(() => textParser.parse(props.textInput))
 
 const renderedText = computed(() => {
-  return textParser.render(tree.value)
+  return asciiGenerator.renderTree(tree.value)
 })
 
 const expandItem = (id: string) => {

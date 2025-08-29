@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useUIStore } from '@/stores/ui.store'
-import InteractiveASCIITree from '@/vue-interactive-ascii-tree/InteractiveASCIITree.vue'
+import InteractiveASCIITree from '@/components/output/InteractiveASCIITree.vue'
 import { computed } from 'vue'
 
 const uiStore = useUIStore()

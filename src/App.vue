@@ -2,8 +2,8 @@
 import ThemeToggle from '@/components/ThemeToggle.vue'
 import { useUIStore } from '@/stores/ui.store'
 import { computed } from 'vue'
-import InputPane from '@/components/InputPane.vue'
-import OutputPane from '@/components/OutputPane.vue'
+import InputPane from '@/components/input/InputPane.vue'
+import OutputPane from '@/components/output/OutputPane.vue'
 
 const uiStore = useUIStore()
 

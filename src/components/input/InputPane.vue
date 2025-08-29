@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { InputEditorType } from '@/types'
 import { computed } from 'vue'
-import TextEditor from '@/components/TextEditor.vue'
+import TextEditor from '@/components/input/TextEditor.vue'
 import { useUIStore } from '@/stores/ui.store'
 
 const uiStore = useUIStore()

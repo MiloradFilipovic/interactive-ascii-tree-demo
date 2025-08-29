@@ -1,10 +1,6 @@
-import { BaseParser } from '@/vue-interactive-ascii-tree/parsers/BaseParser'
-import type {
-  ParsedLine,
-  ParserOptions,
-  StackEntry,
-} from '@/vue-interactive-ascii-tree/parsers/types'
-import { TreeNode } from '@/vue-interactive-ascii-tree/parsers/TreeNode'
+import { BaseParser } from '@/parsers/BaseParser'
+import type { ParsedLine, ParserOptions, StackEntry } from '@/parsers/types'
+import { TreeNode } from '@/parsers/TreeNode'
 
 export class TextParser extends BaseParser {
   private readonly tabWidth: number
@@ -58,7 +54,7 @@ export class TextParser extends BaseParser {
     if (lines.length === 0) {
       throw new Error('No lines to build tree from')
     }
-    
+
     const roots: TreeNode[] = []
     const stack: StackEntry[] = []
 
@@ -83,7 +79,7 @@ export class TextParser extends BaseParser {
           while (stack.length > 0 && stack[stack.length - 1].indent >= line.indentAmount) {
             stack.pop()
           }
-          
+
           if (stack.length === 0) {
             // This becomes a new root
             roots.push(node)
@@ -97,18 +93,16 @@ export class TextParser extends BaseParser {
 
       stack.push({ node, indent: line.indentAmount })
     }
-    
+
     return roots
   }
 
   parse(input: string): TreeNode[] {
-    this.clearWarnings()
     const lines = this.parseLines(input)
 
     if (lines.length === 0) {
       return []
     }
-
     return this.buildTree(lines)
   }
 }

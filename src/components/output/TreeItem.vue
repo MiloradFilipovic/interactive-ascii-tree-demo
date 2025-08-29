@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TreeNode } from '@/vue-interactive-ascii-tree/parsers/TreeNode'
+import type { TreeNode } from '@/parsers/TreeNode'
 import { computed } from 'vue'
 import {
   COLLAPSED_BUTTON,
@@ -8,7 +8,7 @@ import {
   EXPANDED_BUTTON,
   LAST_CHILD_PREFIX,
   PIPE_PREFIX,
-} from '@/vue-interactive-ascii-tree/constants'
+} from '@/constants'
 
 type Props = {
   node: TreeNode
