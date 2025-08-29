@@ -2,6 +2,8 @@
 import { useUIStore } from '@/stores/ui.store'
 import { onMounted, useTemplateRef, watch, nextTick, ref } from 'vue'
 
+// TODO: Load example content
+
 const uiStore = useUIStore()
 
 type Props = {
@@ -18,14 +20,16 @@ const textarea = useTemplateRef('textarea')
 
 const currentValue = ref('')
 
-const placeholderText = `src
-  components
-    TextEditor.vue
-  composables
-    useTextEditor.vue
-  stores
-    ui.store.ts
-  App.vue
+const placeholderText = `project
+    src
+      components
+      utils
+      App.js
+      index.js
+    public
+    package.json
+    README.md
+    .gitignore
 `
 
 onMounted(() => {

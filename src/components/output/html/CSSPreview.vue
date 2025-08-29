@@ -41,6 +41,7 @@ const code = hljs.highlight(TREE_CSS, {
 
 .code {
   width: 100%;
+  max-height: 500px;
 }
 
 .copy-button {
