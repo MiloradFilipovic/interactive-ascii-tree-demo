@@ -2,7 +2,7 @@
 
 Demo website for `vue-interactive-ascii-tree`
 
-🎮 [Live Demo](https://interactive-ascii-tree-demo.netlify.app/)
+🎮 [Live Demo](https://interactive-ascii-tee-generator.netlify.app/)
 
 ## dev Setup
 
