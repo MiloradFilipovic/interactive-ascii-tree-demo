@@ -1,0 +1,96 @@
+<script setup lang="ts">
+import { useUIStore } from '@/stores/ui.store'
+import { computed } from 'vue'
+import type { OutputType } from '@/types'
+import { CodeXml, LetterText, Palette, Puzzle } from 'lucide-vue-next'
+
+type Props = {
+  disabled?: boolean
+}
+
+const uiStore = useUIStore()
+
+const props = withDefaults(defineProps<Props>(), {
+  disabled: false,
+})
+
+const activeTab = computed(() => uiStore.outputMode)
+
+const setActiveTab = (tab: OutputType) => {
+  uiStore.outputMode = tab
+}
+</script>
+
+<template>
+  <div :class="{ [$style.tabs]: true, [$style.disabled]: props.disabled }">
+    <button
+      :class="{ [$style.active]: activeTab === 'ascii' }"
+      :disabled="props.disabled"
+      @click="setActiveTab('ascii')"
+    >
+      <LetterText :size="12" :class="$style.icon" />
+      <span>ASCII</span>
+    </button>
+    <button
+      :class="{ [$style.active]: activeTab === 'html' }"
+      :disabled="props.disabled"
+      @click="setActiveTab('html')"
+    >
+      <code-xml :size="12" :class="$style.icon" />
+      <span>HTML</span>
+    </button>
+    <button
+      :class="{ [$style.active]: activeTab === 'css' }"
+      :disabled="props.disabled"
+      @click="setActiveTab('css')"
+    >
+      <Palette :size="12" :class="$style.icon" />
+      <span>CSS</span>
+    </button>
+    <button
+      :class="{ [$style.active]: activeTab === 'web-component' }"
+      :disabled="props.disabled"
+      @click="setActiveTab('web-component')"
+    >
+      <Puzzle :size="12" :class="$style.icon" />
+      <span>Web Component</span>
+    </button>
+  </div>
+</template>
+
+<style module lang="scss">
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.3rem;
+  background-color: var(--background-muted);
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  background: none;
+  border: none;
+  font-family: inherit;
+  color: var(--text-color);
+  font-weight: 500;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.active {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+}
+
+.icon {
+  @media screen and (max-width: 950px) {
+    display: none;
+  }
+}
+</style>

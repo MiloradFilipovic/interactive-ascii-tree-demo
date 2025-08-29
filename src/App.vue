@@ -18,9 +18,9 @@ const currentTheme = computed(() => uiStore.theme)
     <div :class="$style.content">
       <header :class="$style.header">
         <h1>
-          <code>vue-interactive-ascii-tree</code>
+          <code>Interactive ASCII Tree generator</code>
         </h1>
-        <p>Interactive ASCII tree component built with Vue3 and TypeScript.</p>
+        <p>Build interactive, HTML-only, ASCII trees from your text input.</p>
       </header>
       <div :class="$style.panes">
         <div :class="[$style.pane]"><InputPane /></div>
