@@ -2,6 +2,7 @@
 import hljs from 'highlight.js'
 import css from 'highlight.js/lib/languages/css'
 import { TREE_CSS } from '@/components/output/html/css-code.constant'
+import CopyButton from '@/components/output/CopyButton.vue'
 
 // TODO: Fix highlighting
 // TODO: Add root element css class to options
@@ -14,6 +15,11 @@ const code = hljs.highlight(TREE_CSS, {
 
 <template>
   <div :class="$style.container">
+    <CopyButton
+      :class="$style['copy-button']"
+      :textToCopy="`<style>${TREE_CSS}</style>`"
+      copyLabel="Copy CSS"
+    />
     <pre :class="$style.code" v-html="code"></pre>
   </div>
 </template>

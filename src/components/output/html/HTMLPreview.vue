@@ -4,6 +4,7 @@ import hljs from 'highlight.js'
 import html from 'highlight.js/lib/languages/xml'
 import { HTMLGenerator } from '@/generators/HTMLGenerator'
 import { computed } from 'vue'
+import CopyButton from '@/components/output/CopyButton.vue'
 
 hljs.registerLanguage('xml', html)
 
@@ -21,6 +22,12 @@ const result = computed(() => htmlGenerator.renderTree(props.tree))
 
 <template>
   <div :class="$style.container">
+    <CopyButton
+      v-if="result"
+      :class="$style['copy-button']"
+      :textToCopy="result"
+      copyLabel="Copy HTML"
+    />
     <pre>{{ result }}</pre>
   </div>
 </template>
