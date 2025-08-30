@@ -79,5 +79,11 @@ button {
     background-color: var(--background-color);
     color: var(--text-color);
   }
+
+  @media screen and (max-width: 600px) {
+    .label {
+      display: none;
+    }
+  }
 }
 </style>

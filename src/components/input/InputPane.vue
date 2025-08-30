@@ -15,10 +15,12 @@ const eraserButtonDisabled = computed(() => currentText.value === '')
 
 const loadExample = () => {
   uiStore.textEditorValue = EXAMPLE_TREE
+  uiStore.outputMode = 'ascii'
 }
 
 const clearText = () => {
   uiStore.textEditorValue = ''
+  uiStore.outputMode = 'ascii'
 }
 </script>
 <template>
