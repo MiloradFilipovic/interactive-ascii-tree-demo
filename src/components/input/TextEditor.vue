@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { EXAMPLE_TREE } from '@/constants'
 import { useUIStore } from '@/stores/ui.store'
 import { onMounted, useTemplateRef, watch, nextTick, ref } from 'vue'
 
@@ -17,18 +18,6 @@ const props = withDefaults(defineProps<Props>(), {
 const textarea = useTemplateRef('textarea')
 
 const currentValue = ref('')
-
-const placeholderText = `project
-    src
-      components
-      utils
-      App.js
-      index.js
-    public
-    package.json
-    README.md
-    .gitignore
-`
 
 onMounted(() => {
   textarea.value?.focus()
@@ -111,7 +100,7 @@ const handleKeydown = (event: KeyboardEvent) => {
       ref="textarea"
       :class="$style.textarea"
       v-model="uiStore.textEditorValue"
-      :placeholder="placeholderText"
+      :placeholder="EXAMPLE_TREE"
       @keydown="handleKeydown"
     />
   </div>
