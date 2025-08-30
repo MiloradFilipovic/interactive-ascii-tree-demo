@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Clipboard, ClipboardCheck } from 'lucide-vue-next'
 
-const COPIED_LABEL = 'Copied!'
 const COPY_TIMEOUT = 2000
 
 type Props = {
@@ -30,9 +30,11 @@ const onCopyButtonClick = async () => {
   <button
     :class="$style['copy-button']"
     :disabled="props.textToCopy === ''"
+    :title="textCopied ? 'Copied!' : props.copyLabel"
     @click="onCopyButtonClick"
   >
-    {{ textCopied ? COPIED_LABEL : props.copyLabel }}
+    <ClipboardCheck v-if="textCopied" :size="20" />
+    <Clipboard v-else :size="20" />
   </button>
 </template>
 

@@ -32,22 +32,17 @@ const code = hljs.highlight(TREE_CSS, {
   flex-direction: column;
   gap: 0.5rem;
   position: relative;
-  overflow: auto;
-
-  &:hover .copy-button {
-    display: block;
-  }
 }
 
 .code {
   width: 100%;
   max-height: 500px;
+  overflow: auto;
 }
 
 .copy-button {
-  display: none;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 0.6rem;
 }
 </style>

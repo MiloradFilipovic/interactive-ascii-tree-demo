@@ -2,7 +2,7 @@
 import { useUIStore } from '@/stores/ui.store'
 import { computed } from 'vue'
 import type { OutputType } from '@/types'
-import { Eye, Palette, Puzzle, CodeXml } from 'lucide-vue-next'
+import { Eye, Palette, CodeXml } from 'lucide-vue-next'
 
 type Props = {
   disabled?: boolean

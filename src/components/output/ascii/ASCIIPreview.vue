@@ -38,17 +38,12 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
   gap: 0.5rem;
   position: relative;
   overflow: auto;
-
-  &:hover .copy-button {
-    display: block;
-  }
 }
 
 .copy-button {
-  display: none;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 0.6rem;
 }
 </style>
 

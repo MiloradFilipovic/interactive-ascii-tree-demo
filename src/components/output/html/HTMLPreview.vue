@@ -35,7 +35,7 @@ const highlightedCode = computed(() => {
       :textToCopy="result"
       copyLabel="Copy HTML"
     />
-    <pre v-html="highlightedCode"></pre>
+    <pre v-html="highlightedCode" :class="$style.code"></pre>
   </div>
 </template>
 
@@ -46,22 +46,15 @@ const highlightedCode = computed(() => {
   flex-direction: column;
   gap: 0.5rem;
   position: relative;
-  overflow: auto;
-
-  &:hover .copy-button {
-    display: block;
-  }
 }
 
-.under-construction {
-  display: flex;
-  gap: 0.5rem;
+.code {
+  overflow: auto;
 }
 
 .copy-button {
-  display: none;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 0.6rem;
 }
 </style>
