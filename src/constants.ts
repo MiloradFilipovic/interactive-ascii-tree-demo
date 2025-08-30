@@ -18,8 +18,10 @@ export const EXAMPLE_TREE = `src
       Login.vue
       PasswordInput.vue
       EmailInput.vue
-   stores
+  stores
     ui.store.ts
+  App.vue
+  main.ts
   README.md
   .gitignore
 `
