@@ -45,10 +45,10 @@ export class HTMLGenerator extends BaseTreeGenerator<string> {
     const openAttr = this.defaultOpen ? ' open' : ''
     return `<li>
 ${innerIndent}<details${openAttr}>
-${innerIndent}    <summary>${escaped}</summary>
-${innerIndent}    <ul>
-${this.renderNodes(node.children, depth + 2)}
-${innerIndent}    </ul>
+${innerIndent}  <summary>${escaped}</summary>
+${innerIndent}  <ul>
+${this.renderNodes(node.children, depth + 3)}
+${innerIndent}  </ul>
 ${innerIndent}</details>
 ${indent}</li>`
   }
