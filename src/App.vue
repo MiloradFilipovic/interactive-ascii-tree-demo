@@ -36,7 +36,7 @@ useHighlightTheme()
 
 <style module lang="scss">
 .app-container {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Consolas", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

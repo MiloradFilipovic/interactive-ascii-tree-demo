@@ -28,7 +28,7 @@ const setActiveTab = (tab: OutputType) => {
       :disabled="props.disabled"
       @click="setActiveTab('ascii')"
     >
-      <Eye :size="12" :class="$style.icon" />
+      <Eye :size="14" :class="$style.icon" />
       <span :class="$style.label">Preview</span>
     </button>
     <button
@@ -36,7 +36,7 @@ const setActiveTab = (tab: OutputType) => {
       :disabled="props.disabled"
       @click="setActiveTab('html')"
     >
-      <code-xml :size="12" :class="$style.icon" />
+      <code-xml :size="14" :class="$style.icon" />
       <span :class="$style.label">HTML</span>
     </button>
     <button
@@ -44,16 +44,8 @@ const setActiveTab = (tab: OutputType) => {
       :disabled="props.disabled"
       @click="setActiveTab('css')"
     >
-      <Palette :size="12" :class="$style.icon" />
+      <Palette :size="14" :class="$style.icon" />
       <span :class="$style.label">CSS</span>
-    </button>
-    <button
-      :class="{ [$style.active]: activeTab === 'web-component' }"
-      :disabled="props.disabled"
-      @click="setActiveTab('web-component')"
-    >
-      <Puzzle :size="12" :class="$style.icon" />
-      <span :class="$style.label">Web Component</span>
     </button>
   </div>
 </template>
@@ -70,6 +62,7 @@ button {
   display: flex;
   align-items: center;
   gap: 0.2rem;
+  font-size: 1rem;
   background: none;
   border: none;
   font-family: inherit;
@@ -85,12 +78,6 @@ button {
   &.active {
     background-color: var(--background-color);
     color: var(--text-color);
-  }
-}
-
-.label {
-  @media screen and (max-width: 950px) {
-    display: none;
   }
 }
 </style>

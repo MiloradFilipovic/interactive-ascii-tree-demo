@@ -138,6 +138,7 @@ const handleKeydown = (event: KeyboardEvent) => {
   font-family: inherit;
   font-size: 1rem;
   resize: vertical;
+  font-family: "Consolas", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
 
   &:focus {
     outline: none;
