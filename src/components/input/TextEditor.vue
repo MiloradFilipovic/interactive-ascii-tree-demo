@@ -79,7 +79,7 @@ const handleKeydown = (event: KeyboardEvent) => {
         value.substring(0, start) +
         '\n' +
         ' '.repeat(props.tabSize).repeat(tabCount) +
-        currentValue.value.substring(end)
+        value.substring(end)
       target.value = value
       setTimeout(
         () => (target.selectionStart = target.selectionEnd = start + props.tabSize * tabCount + 1),
