@@ -50,6 +50,8 @@ const highlightedCode = computed(() => {
 
 .code {
   overflow: auto;
+  width: 100%;
+   max-height: 500px;
 }
 
 .copy-button {

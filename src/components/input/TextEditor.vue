@@ -2,8 +2,6 @@
 import { useUIStore } from '@/stores/ui.store'
 import { onMounted, useTemplateRef, watch, nextTick, ref } from 'vue'
 
-// TODO: Load example content
-
 const uiStore = useUIStore()
 
 type Props = {
@@ -125,6 +123,7 @@ const handleKeydown = (event: KeyboardEvent) => {
   flex-direction: column;
   gap: 1rem;
   width: 100%;
+  margin-top: 1rem;
 }
 
 .textarea {

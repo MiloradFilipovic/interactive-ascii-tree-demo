@@ -1,10 +1,38 @@
 <script setup lang="ts">
 import TextEditor from '@/components/input/TextEditor.vue'
+import { EXAMPLE_TREE } from '@/constants'
+import { useUIStore } from '@/stores/ui.store'
+import { FileInput, Eraser } from 'lucide-vue-next'
+import { computed } from 'vue'
+
+const uiStore = useUIStore()
+
+const currentText = computed(() => uiStore.textEditorValue)
+
+const importButtonDisabled = computed(() => currentText.value !== '')
+
+const eraserButtonDisabled = computed(() => currentText.value === '')
+
+const loadExample = () => {
+  uiStore.textEditorValue = EXAMPLE_TREE
+}
+
+const clearText = () => {
+  uiStore.textEditorValue = ''
+}
 </script>
 <template>
   <div :class="$style.container">
     <header :class="$style.header">
       <h2>Input</h2>
+      <div :class="$style.toolbar">
+        <button title="Load example" :disabled="importButtonDisabled" @click="loadExample">
+          <FileInput :size="20"/>
+        </button>
+        <button title="Clear" :disabled="eraserButtonDisabled" @click="clearText">
+          <Eraser :size="20"/>
+        </button>
+      </div>
     </header>
     <div :class="$style.editors">
       <TextEditor />
@@ -15,7 +43,17 @@ import TextEditor from '@/components/input/TextEditor.vue'
 .container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .editors {
