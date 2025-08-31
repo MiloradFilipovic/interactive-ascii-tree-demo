@@ -48,6 +48,13 @@ useHighlightTheme()
         <p>Just click the <i>Copy</i> button in the [<span :class="$style.tab"><Eye :size="12" /> Preview</span>] tab.</p>
       </section>
       <section>
+        <h2>No-JavaScript is nice but I want more</h2>
+        <p>
+          Depending on my free time (and motivation), I am planning to release web component and vue versions.
+          With custom props and events, it should be easy to use ASCII tree as a functional component, not just for presentation purposes.
+        </p>
+      </section>
+      <section>
         <p>For bug submissions, feature requests or any other inquiries, visit the <a href="https://github.com/MiloradFilipovic/interactive-ascii-tree-generator/issues" target="_blank">GitHub Issues</a> page.</p>
       </section>
       <footer>
