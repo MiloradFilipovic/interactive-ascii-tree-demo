@@ -121,7 +121,7 @@ const handleKeydown = (event: KeyboardEvent) => {
   height: 100%;
   border: 1px solid var(--border-color);
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-base);
   padding: 0.5rem;
   font-family: inherit;
   font-size: 1rem;
@@ -130,7 +130,7 @@ const handleKeydown = (event: KeyboardEvent) => {
 
   &:focus {
     outline: none;
-    border-color: var(--primary-color);
+    border-color: var(--text-color-base);
   }
 }
 </style>

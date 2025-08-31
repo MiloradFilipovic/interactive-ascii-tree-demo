@@ -76,7 +76,7 @@ useHighlightTheme()
   padding: 1rem;
 
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-base);
 }
 
 .toolbar {
@@ -96,8 +96,12 @@ useHighlightTheme()
   }
 }
 
+h1, h2 {
+  color: var(--text-color-dark);
+}
+
 a {
-  color: var(--text-color-lighter);
+  color: var(--text-color-dark);
 }
 
 code {
@@ -132,7 +136,7 @@ code {
   gap: 1rem;
 
   .pane {
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--text-color-dark);
     padding: 0.5rem;
     background-color: var(--background-color);
     width: 50%;
@@ -153,7 +157,7 @@ code {
 }
 
 footer {
-  border-top: 1px solid var(--text-color);
+  border-top: 1px solid var(--text-color-dark);
   padding: 0.3rem 0.2rem;
   text-align: end;
 }
