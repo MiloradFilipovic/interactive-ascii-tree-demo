@@ -5,8 +5,13 @@ import html from 'highlight.js/lib/languages/xml'
 import { HTMLGenerator } from '@/generators/HTMLGenerator'
 import { computed } from 'vue'
 import CopyButton from '@/components/output/CopyButton.vue'
+import { useUIStore } from '@/stores/ui.store'
 
 hljs.registerLanguage('xml', html)
+
+const uiStore = useUIStore()
+
+const currentTheme = computed(() => uiStore.theme)
 
 type Props = {
   tree: TreeNode[]
@@ -17,7 +22,7 @@ const htmlGenerator = new HTMLGenerator()
 
 const props = defineProps<Props>()
 
-const result = computed(() => htmlGenerator.renderTree(props.tree))
+const result = computed(() => htmlGenerator.renderTree(props.tree, currentTheme.value))
 
 const highlightedCode = computed(() => {
   if (!result.value) return ''

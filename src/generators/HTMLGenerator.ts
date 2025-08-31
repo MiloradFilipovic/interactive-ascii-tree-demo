@@ -22,9 +22,9 @@ export class HTMLGenerator extends BaseTreeGenerator<string> {
     this.indentSize = options.indentSize ?? 2
   }
 
-  renderTree(nodes: TreeNode[]): string {
+  renderTree(nodes: TreeNode[], theme?: string): string {
     const tree = this.renderNodes(nodes, 0)
-    return `<ul class="interactive-ascii-tree">\n${tree}\n</ul>`
+    return `<ul class="interactive-ascii-tree" data-theme="${theme ?? 'light'}">\n${tree}\n</ul>`
   }
 
   private renderNodes(nodes: TreeNode[], depth: number): string {

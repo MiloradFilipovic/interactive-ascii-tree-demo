@@ -3,7 +3,7 @@ import type { TreeNode } from '@/parsers/TreeNode'
 export abstract class BaseTreeGenerator<T> {
   constructor() {}
 
-  abstract renderTree(nodes: TreeNode[]): T
+  abstract renderTree(nodes: TreeNode[], theme?: string): T
 
   protected traverse(
     nodes: TreeNode[],

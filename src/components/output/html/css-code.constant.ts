@@ -1,7 +1,17 @@
-export const TREE_CSS = `
-.interactive-ascii-tree {
+export const TREE_CSS = `.interactive-ascii-tree {
+  --background-color: #ffffff;
+  --background-muted: #eeeeee;
+  --text-color-base: #222222;
+  --text-color-muted: #999999;
+
+  &[data-theme='dark'] {
+    --background-color: #222222;
+    --background-muted: #555555;
+    --text-color-base: #ffffff;
+    --text-color-muted: #aaaaaa;
+  }
+
   --indent: 4ch;
-  --line-color: #666;
   --v-line: '│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A│\\A';
 
   list-style: none;
@@ -13,6 +23,7 @@ export const TREE_CSS = `
   font-size: 16px;
   line-height: 1;
   font-family: "Consolas", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
+  color: var(--text-color-base);
 
   ul {
     list-style: none;
@@ -31,7 +42,7 @@ export const TREE_CSS = `
       
       > *:first-child::before {
         content: '├── ';
-        color: var(--line-color);
+        color: var(--text-color-muted);
         position: absolute;
         left: 0;
       }
@@ -42,7 +53,7 @@ export const TREE_CSS = `
       
       &::after {
         content: var(--v-line);
-        color: var(--line-color);
+        color: var(--text-color-muted);
         position: absolute;
         left: 0;
         top: 1.4em;
@@ -79,7 +90,7 @@ export const TREE_CSS = `
     
     &::after {
       content: '[+]';
-      color: var(--line-color);
+      color: var(--text-color-muted);
     }
     
     details[open] > &::after {
@@ -87,14 +98,7 @@ export const TREE_CSS = `
     }
     
     &:hover {
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: 2px;
-    }
-    
-    &:focus-visible {
-      background: rgba(0, 100, 200, 0.1);
-      outline: 2px solid #0064c8;
-      outline-offset: 2px;
+      background: var(--background-muted);
       border-radius: 2px;
     }
   }

@@ -66,7 +66,7 @@ button {
   background: none;
   border: none;
   font-family: inherit;
-  color: var(--text-color);
+  color: var(--text-color-base);
   font-weight: 500;
   cursor: pointer;
 
@@ -77,7 +77,7 @@ button {
 
   &.active {
     background-color: var(--background-color);
-    color: var(--text-color);
+    color: var(--text-color-dark);
   }
 
   @media screen and (max-width: 600px) {

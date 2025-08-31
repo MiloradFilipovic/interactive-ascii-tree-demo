@@ -41,7 +41,7 @@ useHighlightTheme()
       </section>
       <section>
         <h2>How do I use the tree I generated?</h2>
-        <p>Copy generated HTML <b>and</b> CSS from their respective tabs in the <i>Result</i> section and paste it into your project.</p>
+        <p>Copy generated HTML <b>and</b> CSS from their respective tabs in the <i>Result</i> section and paste it into your project. You can customize dark and light themes by modifying CSS variables.</p>
       </section>
       <section>
         <h2>Need text-only version?</h2>

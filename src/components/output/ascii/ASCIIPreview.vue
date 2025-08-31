@@ -4,10 +4,15 @@ import type { TreeNode } from '@/parsers/TreeNode'
 import { computed } from 'vue'
 import CopyButton from '@/components/output/CopyButton.vue'
 import { HTMLGenerator } from '@/generators/HTMLGenerator'
+import { useUIStore } from '@/stores/ui.store'
 
 type Props = {
   tree: TreeNode[]
 }
+
+const uiStore = useUIStore()
+
+const currentTheme = computed(() => uiStore.theme)
 
 const asciiGenerator = new AsciiGenerator()
 const htmlGenerator = new HTMLGenerator()
@@ -15,7 +20,7 @@ const htmlGenerator = new HTMLGenerator()
 const props = defineProps<Props>()
 
 const asciiResult = computed(() => asciiGenerator.renderTree(props.tree))
-const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
+const htmlResult = computed(() => htmlGenerator.renderTree(props.tree, currentTheme.value))
 </script>
 
 <template>
@@ -50,8 +55,19 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
 <style>
 /* TODO: Figure out how to load styles from the constant */
 .interactive-ascii-tree {
+  --background-color: #ffffff;
+  --background-muted: #eeeeee;
+  --text-color-base: #222222;
+  --text-color-muted: #999999;
+
+  &[data-theme='dark'] {
+    --background-color: #222222;
+    --background-muted: #555555;
+    --text-color-base: #ffffff;
+    --text-color-muted: #aaaaaa;
+  }
+
   --indent: 4ch;
-  --line-color: #666;
   --v-line: '│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A│\A';
 
   list-style: none;
@@ -63,6 +79,7 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
   font-size: 16px;
   line-height: 1;
   font-family: "Consolas", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
+  color: var(--text-color-base);
 
   ul {
     list-style: none;
@@ -81,7 +98,7 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
       
       > *:first-child::before {
         content: '├── ';
-        color: var(--line-color);
+        color: var(--text-color-muted);
         position: absolute;
         left: 0;
       }
@@ -92,7 +109,7 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
       
       &::after {
         content: var(--v-line);
-        color: var(--line-color);
+        color: var(--text-color-muted);
         position: absolute;
         left: 0;
         top: 1.4em;
@@ -129,7 +146,7 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
     
     &::after {
       content: '[+]';
-      color: var(--line-color);
+      color: var(--text-color-muted);
     }
     
     details[open] > &::after {
@@ -137,14 +154,7 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree))
     }
     
     &:hover {
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: 2px;
-    }
-    
-    &:focus-visible {
-      background: rgba(0, 100, 200, 0.1);
-      outline: 2px solid #0064c8;
-      outline-offset: 2px;
+      background: var(--background-muted);
       border-radius: 2px;
     }
   }
