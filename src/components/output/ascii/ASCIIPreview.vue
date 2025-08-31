@@ -135,6 +135,7 @@ const htmlResult = computed(() => htmlGenerator.renderTree(props.tree, currentTh
 
   summary {
     cursor: pointer;
+    display: inline;
     outline: none;
     user-select: none;
   }
