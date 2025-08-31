@@ -24,6 +24,7 @@ export const TREE_CSS = `.interactive-ascii-tree {
   line-height: 1;
   font-family: "Consolas", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
   color: var(--text-color-base);
+  background-color: var(--background-color);
 
   ul {
     list-style: none;
