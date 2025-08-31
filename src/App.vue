@@ -109,6 +109,10 @@ code {
   padding: 2px;
 }
 
+p {
+  line-height: 1.4;
+}
+
 .tab {
   background-color: var(--background-muted);
   padding: 0 0.3rem;

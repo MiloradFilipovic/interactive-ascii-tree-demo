@@ -35,7 +35,7 @@ const toggleTheme = () => {
   font-weight: 600;
   font-size: 0.9rem;
   background-color: var(--background-color);
-  color: var(--text-color);
-  border: 1px solid var(--primary-color);
+  color: var(--text-color-base);
+  border: 1px solid var(--text-color-dark);
 }
 </style>
