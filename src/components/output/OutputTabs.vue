@@ -29,7 +29,7 @@ const setActiveTab = (tab: OutputType) => {
       @click="setActiveTab('ascii')"
     >
       <Eye :size="14" :class="$style.icon" />
-      <span :class="$style.label">Preview</span>
+      <span :class="[$style.label, 'hide-on-small']">Preview</span>
     </button>
     <button
       :class="{ [$style.active]: activeTab === 'html' }"
@@ -37,7 +37,7 @@ const setActiveTab = (tab: OutputType) => {
       @click="setActiveTab('html')"
     >
       <code-xml :size="14" :class="$style.icon" />
-      <span :class="$style.label">HTML</span>
+      <span :class="[$style.label, 'hide-on-small']">HTML</span>
     </button>
     <button
       :class="{ [$style.active]: activeTab === 'css' }"
@@ -45,7 +45,7 @@ const setActiveTab = (tab: OutputType) => {
       @click="setActiveTab('css')"
     >
       <Palette :size="14" :class="$style.icon" />
-      <span :class="$style.label">CSS</span>
+      <span :class="[$style.label, 'hide-on-small']">CSS</span>
     </button>
   </div>
 </template>
@@ -78,12 +78,6 @@ button {
   &.active {
     background-color: var(--background-color);
     color: var(--text-color-dark);
-  }
-
-  @media screen and (max-width: 600px) {
-    .label {
-      display: none;
-    }
   }
 }
 </style>

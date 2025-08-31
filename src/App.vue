@@ -5,7 +5,7 @@ import { computed } from 'vue'
 import InputPane from '@/components/input/InputPane.vue'
 import OutputPane from '@/components/output/OutputPane.vue'
 import { useHighlightTheme } from '@/composables/useHighlightTheme'
-import { Eye } from 'lucide-vue-next'
+import { Eye, Clipboard } from 'lucide-vue-next'
 
 const uiStore = useUIStore()
 
@@ -45,7 +45,7 @@ useHighlightTheme()
       </section>
       <section>
         <h2>Need text-only version?</h2>
-        <p>Just click the <i>Copy</i> button in the [<span :class="$style.tab"><Eye :size="12" /> Preview</span>] tab.</p>
+        <p>Just click the <i>Copy</i> button (<Clipboard :size="16" />) in the [<span :class="$style.tab"><Eye :size="16" /><span class="hide-on-small">Preview</span></span>] tab.</p>
       </section>
       <section>
         <h2>No-JavaScript is nice but I want more</h2>
@@ -116,7 +116,10 @@ p {
 .tab {
   background-color: var(--background-muted);
   padding: 0 0.3rem;
-  font-family: inherit;
+  color: var(--text-color-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .header {

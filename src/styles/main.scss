@@ -19,3 +19,9 @@ h2 {
  --text-color-dark: #ffffff;
   --text-color-base: #aaaaaa;
 }
+
+@media (max-width: 600px) {
+  .hide-on-small {
+    display: none;
+  }
+}
