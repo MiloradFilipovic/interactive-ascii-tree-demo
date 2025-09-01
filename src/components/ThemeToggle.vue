@@ -17,7 +17,12 @@ const toggleTheme = () => {
 
 <template>
   <div>
-    <button :class="$style['theme-toggle']" @click="toggleTheme">
+    <button 
+      :class="$style['theme-toggle']" 
+      :aria-label="`Switch to ${currentTheme === 'light' ? 'dark' : 'light'} theme`"
+      role="button" 
+       @click="toggleTheme"
+    >
       <component :is="icon" :size="14" />
       {{ currentTheme === 'light' ? 'Dark' : 'Light' }}
     </button>

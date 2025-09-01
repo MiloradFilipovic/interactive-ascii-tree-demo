@@ -28,10 +28,10 @@ const clearText = () => {
     <header :class="$style.header">
       <h2>Input</h2>
       <div :class="$style.toolbar">
-        <button title="Load example" :disabled="importButtonDisabled" @click="loadExample">
+        <button title="Load example" aria-label="Load example" role="button" :disabled="importButtonDisabled" @click="loadExample">
           <FileInput :size="20"/>
         </button>
-        <button title="Clear" :disabled="eraserButtonDisabled" @click="clearText">
+        <button title="Clear" aria-label="Clear" role="button" :disabled="eraserButtonDisabled" @click="clearText">
           <Eraser :size="20"/>
         </button>
       </div>

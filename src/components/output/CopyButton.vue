@@ -31,6 +31,8 @@ const onCopyButtonClick = async () => {
     :class="$style['copy-button']"
     :disabled="props.textToCopy === ''"
     :title="textCopied ? 'Copied!' : props.copyLabel"
+    aria-label="Copy to clipboard"
+    role="button"
     @click="onCopyButtonClick"
   >
     <ClipboardCheck v-if="textCopied" :size="20" />

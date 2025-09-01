@@ -33,11 +33,12 @@ useHighlightTheme()
         <h2>How does this work?</h2>
         <p>
           Collapse/expand functionality of ASCII trees is achieved using HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details" target="_blank">details</a>
-          and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/summary" target="_blank">summary</a> HTML elements. Tree-like indentation is created using unordered lists and css.
-          ASCII-art lines are appended to list elements using the <code>::before</code> and <code>::after</code> pseudo-elements, 
-          while <a href="https://github.com/MiloradFilipovic/interactive-ascii-tree-generator/blob/a687ffbaed4420f20b1e4e6ab1f65efdb255e8ea/src/components/output/ascii/ASCIIPreview.vue#L55" target="_blank">this little hack</a> 
-          is used to render vertical lines correctly (It won't work for very nested trees but should cover most cases).
+          and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/summary" target="_blank">summary</a> HTML elements. Default markers are hidden and custom ones are created using <code>::after</code> pseudo-elements.
         </p>
+        <p>
+          Tree-like indentation is created using nested lists and some css. ASCII-art lines are appended to list elements using the <code>::before</code> pseudo-elements, 
+          while <a href="https://github.com/MiloradFilipovic/interactive-ascii-tree-generator/blob/a687ffbaed4420f20b1e4e6ab1f65efdb255e8ea/src/components/output/ascii/ASCIIPreview.vue#L55" target="_blank">this little hack</a> 
+          is used to render vertical lines correctly (It won't work for very nested trees but should cover most cases).</p>
       </section>
       <section>
         <h2>How do I use the tree I generated?</h2>

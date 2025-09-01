@@ -26,6 +26,8 @@ const setActiveTab = (tab: OutputType) => {
     <button
       :class="{ [$style.active]: activeTab === 'ascii' }"
       :disabled="props.disabled"
+      role="button"
+      aria-label="ASCII Preview"
       @click="setActiveTab('ascii')"
     >
       <Eye :size="14" :class="$style.icon" />
@@ -34,6 +36,8 @@ const setActiveTab = (tab: OutputType) => {
     <button
       :class="{ [$style.active]: activeTab === 'html' }"
       :disabled="props.disabled"
+      role="button"
+      aria-label="HTML"
       @click="setActiveTab('html')"
     >
       <code-xml :size="14" :class="$style.icon" />
@@ -42,6 +46,8 @@ const setActiveTab = (tab: OutputType) => {
     <button
       :class="{ [$style.active]: activeTab === 'css' }"
       :disabled="props.disabled"
+      role="button"
+      aria-label="CSS"
       @click="setActiveTab('css')"
     >
       <Palette :size="14" :class="$style.icon" />
