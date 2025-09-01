@@ -79,6 +79,7 @@ export const TREE_CSS = `.interactive-ascii-tree {
 
   summary {
     cursor: pointer;
+    display: inline;
     outline: none;
     user-select: none;
   }
